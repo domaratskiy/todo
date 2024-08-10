@@ -1,0 +1,125 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.completed {
+  text-decoration: line-through;
+  color: rgb(238, 223, 10);
+  text-shadow: 1px 1px 1px #000;
+  background-color: #a3cf68;
+}
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+body {
+  background-color: rgba(255, 253, 244, 0.96);
+  font-family: "Roboto Condensed", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+.nameApp {
+  padding: 10px 0;
+}
+.taskItemCont {
+  padding: 0 10px 0 25px;
+}
+.taskItem {
+  border-bottom: 1px dashed black;
+}
+.cont {
+  display: flex;
+  justify-content: space-between;
+}
+.taskText {
+  padding: 10px;
+  font-family: "Playfair Display", serif;
+  font-weight: 300;
+  word-wrap: break-word;
+  word-break: break-all;
+}
+.wrapper {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 10px;
+  border: 1px solid black;
+}
+.taskWrapper {
+  padding-bottom: 10px;
+  width: 81%;
+}
+.btnCont {
+  display: flex;
+  padding-top: 10px;
+  flex-direction: column;
+  width: 19%;
+}
+.readyBtn,
+.deleteBtn {
+  padding: 10px;
+  font-size: 9px;
+  width: 100%;
+}
+.readyBtn {
+  margin-bottom: 10px;
+}
+.deleteBtn {
+  background-color: rgb(219, 146, 36);
+}
+.inputText {
+  display: flex;
+}
+#title {
+  width: 70%;
+  padding: 10px;
+  border-radius: 15px;
+  height: 35px;
+}
+.addBtn {
+  padding: 10px;
+  width: 30%;
+}
+.cont1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 15px;
+}
+.cont1 img {
+  padding-left: 8px;
+}
+@media (max-width: 600px) {
+  .date {
+    font-size: 13px;
+    padding: 10px;
+  }
+  .readyBtn,
+  .deleteBtn {
+    padding: 6px;
+  }
+}
+/*  */
+.days {
+  display: flex;
+  list-style: none;
+  justify-content: space-around;
+  align-items: center;
+  padding: 15px 0;
+}
+.days li {
+  width: 30px;
+  height: 30px;
+  background-color: #4d4117;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: antiquewhite;
+  border-radius: 50%;
+}
+.now {
+  width: 40px !important;
+  height: 40px !important;
+  background-color: #dfbd43 !important;
+}

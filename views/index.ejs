@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Todo List</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Roboto+Condensed:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/style.css" />
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="cont1">
+        <img src="/img/Ellipse.png" alt="Andrey avatar" />
+        <span>Good evening, Andrey</span>
+      </div>
+
+      <div class="calendar">
+        <ul class="days">
+          <li></li>
+          <li></li>
+          <li></li>
+          <li class="now"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+      <form action="/" method="POST" class="inputText">
+        <input
+          type="text"
+          id="title"
+          name="title"
+          required
+          placeholder="Введите задачу"
+        />
+        <button type="submit" class="addBtn">Add Todo</button>
+      </form>
+      <div class="div">Задачи к выполнению</div>
+      <div class="taskCont">
+        <ol>
+          <% tasks.forEach(function(task) { %>
+          <div class="taskItemCont <%= task.completed ? 'completed' : '' %>">
+            <li class="taskItem <%= task.completed ? 'completed' : '' %>">
+              <div class="cont">
+                <div class="taskWrapper">
+                  <p class="taskText"><%= task.title %></p>
+                  <p class="date">
+                    <%= `Задача создана в
+                    ${task.createdAt.getHours()}:${task.createdAt.getMinutes()}
+                    ${task.createdAt.toDateString()}` %>
+                  </p>
+                </div>
+
+                <!-- Форма для удаления задачи -->
+                <div class="btnCont">
+                  <form
+                    action="/update/<%= task._id %>?_method=PUT"
+                    method="POST"
+                    style="display: inline"
+                  >
+                    <button type="submit" class="readyBtn">
+                      <%= task.completed ? 'Готово' : 'Не готово' %>
+                    </button>
+                  </form>
+                  <form action="/delete" method="POST">
+                    <input type="hidden" name="id" value="<%= task._id %>" />
+                    <button type="submit" class="deleteBtn">Удалить</button>
+                  </form>
+                </div>
+              </div>
+
+              <!-- Форма для обновления статуса задачи -->
+            </li>
+          </div>
+
+          <% }) %>
+        </ol>
+      </div>
+    </div>
+    <script src="/js/script.js"></script>
+  </body>
+</html>
