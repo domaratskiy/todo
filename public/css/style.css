@@ -67,6 +67,7 @@ body {
 }
 .deleteBtn {
   background-color: rgb(219, 146, 36);
+  margin-bottom: 10px;
 }
 .inputText {
   display: flex;
